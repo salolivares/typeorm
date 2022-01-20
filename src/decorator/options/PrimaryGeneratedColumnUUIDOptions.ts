@@ -1,7 +1,9 @@
+import { ColumnCommonOptions } from "./ColumnCommonOptions";
+
 /**
  * Describes all options for PrimaryGeneratedColumn decorator with numeric uuid strategy.
  */
-export interface PrimaryGeneratedColumnUUIDOptions {
+export interface PrimaryGeneratedColumnUUIDOptions extends Pick<ColumnCommonOptions, "transformer"> {
 
     /**
      * Column name in the database.

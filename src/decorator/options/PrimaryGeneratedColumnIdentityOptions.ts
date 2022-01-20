@@ -1,9 +1,10 @@
 import {PrimaryGeneratedColumnType} from "../../driver/types/ColumnTypes";
+import { ColumnCommonOptions } from "./ColumnCommonOptions";
 
 /**
  * Describes all options for PrimaryGeneratedColumn decorator with identity generation strategy.
  */
-export interface PrimaryGeneratedColumnIdentityOptions {
+export interface PrimaryGeneratedColumnIdentityOptions extends Pick<ColumnCommonOptions, "transformer"> {
 
     /**
      * Column type. Must be one of the value from the ColumnTypes class.

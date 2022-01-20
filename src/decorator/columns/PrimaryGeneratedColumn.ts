@@ -5,6 +5,8 @@ import {GeneratedMetadataArgs} from "../../metadata-args/GeneratedMetadataArgs";
 import { ColumnOptions } from "../options/ColumnOptions";
 import { PrimaryGeneratedColumnIdentityOptions } from "../options/PrimaryGeneratedColumnIdentityOptions";
 
+export type PrimaryGeneratedColumnOptions = PrimaryGeneratedColumnNumericOptions|PrimaryGeneratedColumnUUIDOptions|PrimaryGeneratedColumnIdentityOptions
+
 /**
  * Column decorator is used to mark a specific class property as a table column.
  */
@@ -37,8 +39,8 @@ export function PrimaryGeneratedColumn(strategy: "identity", options?: PrimaryGe
  * Only properties decorated with this decorator will be persisted to the database when entity be saved.
  * This column creates an integer PRIMARY COLUMN with generated set to true.
  */
-export function PrimaryGeneratedColumn(strategyOrOptions?: "increment"|"uuid"|"rowid"|"identity"|PrimaryGeneratedColumnNumericOptions|PrimaryGeneratedColumnUUIDOptions|PrimaryGeneratedColumnIdentityOptions,
-                                       maybeOptions?: PrimaryGeneratedColumnNumericOptions|PrimaryGeneratedColumnUUIDOptions|PrimaryGeneratedColumnIdentityOptions): PropertyDecorator {
+export function PrimaryGeneratedColumn(strategyOrOptions?: "increment"|"uuid"|"rowid"|"identity"|PrimaryGeneratedColumnOptions,
+                                       maybeOptions?: PrimaryGeneratedColumnOptions): PropertyDecorator {
 
     // normalize parameters
     const options: ColumnOptions = {};
